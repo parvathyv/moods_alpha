@@ -2,7 +2,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: meetups_development
+  database: moods_development
   pool: 5
   username:
   password:
@@ -11,7 +11,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: meetups_test
+  database: moods_test
   pool: 5
   username:
   password:

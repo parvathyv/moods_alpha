@@ -1,12 +1,89 @@
 <h1><%= @title %></h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moods</title>
+   <link rel="stylesheet" href="css/foundation.css" />
+   
+    <script src="javascripts/vendor/modernizr.js"></script>
 
-<ul>
-	<% @meetups.each do|meetup_object|%>
-   		<a href="/meetup/<%=meetup_object.id %>"><%=meetup_object.name %></a>
-   		<div>&nbsp</div>
-   	
-    <%end%>
+  <link rel="stylesheet" href="/stylesheets/normalize.css" />
+  <link rel="stylesheet" href="/stylesheets/app.css" />
+   <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+   
+</head>
+<body>
+    <script type="text/javascript">
+      var comments_array = <%= @all_user_moods.inspect %>
+    </script>
+      <div class="title">
+        <h1>
+          <a href="#">
+            mOOdY 1.0
+          </a>
+       </h1>
+      </div>
 
-</ul>
+     
+      <div class = "pic_container">
+        <div class="pic">
+          <a href='/'><img src="/images/happy.png"/></a>
+        
+        </div>
+ 
+        <div class="pic" >
+          <a href='/'><img src="/images/meh.png"/></a>
+       
+        </div>
+ 
+        <div class="pic" name = "sad">
+          <a href='/'><img src="/images/sad.png"/></a>
+         
+        </div>
+        </div>
+ 
 
-<a href="/meetup/new">Your new meetup</a>
+        </div>
+      </div>  
+
+      <div class = "info_container">
+        <div class = "header_container" id="big_header">
+          This is a header
+        </div>
+      </div>
+     
+      <div class = "input_form">
+        <form method='post' action="/">
+          <div>        
+           <input type="radio" class = "radio_button" name="happy" value="happy">s
+          <input type="radio" class = "radio_button" name = "meh" value="meh">
+          <input type="radio" class = "radio_button" name = "sad" value="sad">
+          </div>
+          <div>
+          <input type="radio" class = "radio_button" name="red" value="Red">Red
+          <input type="radio"  class = "radio_button" name="green" value="Green">Green                                                              
+          <input type="radio"  class = "radio_button" name="blue" value="Blue">Blue
+          </div>
+          <input type="text" class = "commenttext" name="comments" placeholder="I feel...."><br> 
+
+          <input type="submit" class = "largebutton" value = "MOOD IT !" />
+         
+        </form>
+      </div>
+       <div>&nbsp</div>
+
+    
+        <script type="text/javascript" src="javascripts/jsapi.js"></script>
+    
+        <script src="javascripts/wordtree.js"></script>
+
+       <div id="wordtree_basic" style="width: 900px; height: 500px;margin-left:auto;margin-right:auto"></div>
+
+
+</body>
+</html>
+
+

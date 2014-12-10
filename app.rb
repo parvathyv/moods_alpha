@@ -31,97 +31,26 @@ end
 end
 
 
-
-
-def validate(name, location, desc)
-
-
-  begin
-
-  @meetup  = Meetup.create!(name: name, location: location, description: desc)
-  message = @meetup.id
-  rescue ActiveRecord::RecordInvalid => invalid
-  message = 0 if logger.error($!.to_s)  
- 
-
-
-end
- 
-message
-
-end
-
 get '/' do
-  @meetups = Meetup.order(name: :asc)
+
+  @all_user_moods = Usermood.all.map{|userobj| [userobj.comments]}
+  binding.pry 
   erb :index
-end
-
-get '/meetup/new' do
-
-  erb :new
-end
-
-post '/meetup/new' do
-
-name = params[:meetupname]
-location = params[:meetuplocation]
-desc = params[:meetupdescription]
-
-succ = validate(name, location, desc)
-
-if succ != 0
- 
-  flash[:notice] = "Success !!"
-  meetup_id = succ
-  current_user_id = session[:user_id]
-  par = Participant.create!(user_id: "#{current_user_id}", meetup_id: "#{meetup_id}", participant_type: 'Creater')
-  
-  redirect "/meetup/#{meetup_id}"
-else
-  flash[:notice] = "You left fields blank, Try again !"
-  redirect "/meetup/new"
-end
-
-end
-
-
-get '/meetup/:id' do
-  
-  meetup_id = params[:id]
-  @meetup = Meetup.find_by id: meetup_id
-  
-  par = Participant.find_by meetup_id: meetup_id
- 
-  
-  if par == nil
-   @participant_type = 'New'
-  else
-   @participant_type = par.participant_type
-   end 
-
-  erb :show
-end
-
-
-post '/meetup/:id' do
-
-@meetup = Meetup.find_by id: params[:id]
-
-meetup_id = @meetup.id
-
-
-current_user_id = session[:user_id]
-begin
-
-par = Participant.create!(user_id: "#{current_user_id}", meetup_id: "#{meetup_id}", participant_type: 'Participant')
-flash[:notice] = "Successfully joined"
-rescue ActiveRecord::RecordInvalid => invalid
-
 end 
 
-redirect "/"
 
-end
+post '/' do
+ 
+  color = params[:red] || params[:blue] || params[:green]
+  comments = params[:comments]
+  mood_type = params[:happy] || params[:sad] || params[:meh] 
+  @meetup  = Usermood.create(user_id: current_user, color: color, mood_type: mood_type, comments: comments)
+  redirect '/'
+
+end  
+
+
+
 
  get '/auth/github/callback' do
   auth = env['omniauth.auth']
