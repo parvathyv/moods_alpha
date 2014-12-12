@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/flash'
 require 'omniauth-github'
+require 'omniauth-google-oauth2'
 
 require_relative 'config/application'
 
@@ -30,37 +31,51 @@ end
 
 end
 
-
 get '/' do
+  erb :index
+end 
 
+get '/moods' do
+  authenticate!
   @all_user_moods = Usermood.all.map{|userobj| [userobj.comments]}
-  binding.pry 
+  @arr = []
+  
+  all_user_colors = Usermood.all.map{|userobj| userobj.color}
+  @arr = all_user_colors.map{|color| [color, all_user_colors.count(color)]}
+ 
+  @arr.unshift(['Colors','Count']).uniq!
+   
   erb :index
 end 
 
 
-post '/' do
- 
-  color = params[:red] || params[:blue] || params[:green]
-  comments = params[:comments]
-  mood_type = params[:happy] || params[:sad] || params[:meh] 
+post '/moods' do
+  
+
+  color = params[:red] || params[:blue] || params[:green] || params[:purple]
+  
+  comments = 'I feel ' + params[:comments]
+  mood_type = params[:happy] || params[:sad] || params[:meh] || params[:ft] || params[:crazy] || params[:zen]
   @meetup  = Usermood.create(user_id: current_user, color: color, mood_type: mood_type, comments: comments)
-  redirect '/'
+  redirect '/moods'
 
 end  
 
 
 
 
- get '/auth/github/callback' do
+
+get '/auth/github/callback' do
   auth = env['omniauth.auth']
 
   user = User.find_or_create_from_omniauth(auth)
   set_current_user(user)
-  flash[:notice] = "You're now signed in as #{user.username}!"
+  #flash[:notice] = "You're now signed in as #{user.username}!"
 
-  redirect '/'
+  redirect '/moods'
 end
+
+
 
 get '/sign_out' do
   session[:user_id] = nil

@@ -1,95 +1,132 @@
-
-body {
-  background-color:white;
-  color: #FFFFFF;
+body{
+  height:100%;
 }
 
-
-.title{
-  margin-top:0;
-  margin-left:auto;
-  margin-right:auto;
-  width:1024px;
-  height:50px;
-  background-color:black;
-  text-align:center;
-}
-
-
-.title a{
-
-  font-family:Oswald;
-  color:white;
-  margin-top:20px;
-  font-size:1.4em;
-  text-decoration:none;
-
-}
-
-.pic_container{
-  width:1024px;
-  margin-left:auto;
-  margin-right:auto;
-
-}
-
-.pic{
+.header{
+  width:100%;
+  height:70px;
   
+  margin-left:auto;
+  margin-right:auto;
+  font-family:Oswald;
+  background-color:white; 
+  color:white;
+ 
+  font-size:1.2em;
+  text-align: center
+}
+
+.header .inline_block{
+  margin-left:90%;
+ 
+  margin-top:-20px;
+}
+
+.header .inline_block li{
   display: inline-block;
-  padding-top:10px; 
-  margin-right: 0.15em;
-  height:252px;
-  width:250px;
-  
+  width:200px;
+  margin-left:-350px;
+  color:black;
+  list-style-type: none;
+
 }
 
 
-.largebutton{
-  position:absolute;
+
+.header .title{
   font-family:Oswald;
-  width:250px;
-  margin-left:65.5%;
- 
-  margin-top:-1.65em;
-  background-color:#ED197D;
+  background-color:black; 
   color:white;
-  height:40px;
-  border:0;
-  font-size:1.5em;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:55px;
+  height:50px;
+  font-size:2.75em;
+}
+
+#main {
+    width: 800px;
+    height:600px;
+    margin-top:50px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+#main div {
+    width: 250px;
+    height: 250;
+    border: 1px solid #ccc;
+    float: left;
+}
+
+#radio_main {
+    width: 800px;
+    height:100px;
+    margin-left:auto;
+    margin-right: auto;
+    text-align:center;
+     font-size:1em;
+    font-family:Oswald;
 }
 
 
-.info_container .header_container{
- 
-  position:absolute;
-  margin-top:2em;
-  width:730px;
-  height:125px;
-  /*margin-left:20%;*/
-  padding-left:2em;
-  padding-top:1em;
-  background-color:#E3F7FE;
- 
+#radio_main .radio .form_label{
+   margin-left:-50px;
+}
+
+
+#radio_main .radio{
+  margin-left:30px;
 
 }
 
-.input_form .commenttext{
- 
-  width:760px;
-  height:40px;
-  font-size:1.2em;
-  font-family:Roberto;
-  font-style:italic;
-  margin-left:19.65%;
-  margin-top:10%;
- 
-}
 
-.input_form .radio_button{
- 
+.input_text{
   
-  font-size:1.2em;
-  font-family:Roberto;
-  color:black; 
+    width: 700px;
+    height:50px;
+    margin-left:auto;
+    margin-right: auto;
+   
+    text-align:center;
+}
+
+.input_text >.comment_text{
+    width:600px;
+    height:30px;
+    font-size:1em;
+    font-style:italic;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+}
+
+.input_text >.root_text{
+    width:200px;
+    height:30px;
+    font-size:1em;
+    font-style:italic;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+}
+
+
+.input_text >.largebutton{
+    width:300px;
+    height:50px;
+    margin: 0 auto;
+    color:white;
+    font-size:2em;
+    font-family:Oswald;
+  background-color:#ED197D;
+  border:0;
  
+}
+
+.widget{
+  text-align:center;
 }

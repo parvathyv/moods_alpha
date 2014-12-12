@@ -5,84 +5,106 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moods</title>
-   <link rel="stylesheet" href="css/foundation.css" />
+   <link rel="stylesheet" href="stylesheets/foundation.css" />
    
-    <script src="javascripts/vendor/modernizr.js"></script>
-
+  <script src="javascripts/vendor/modernizr.js"></script>
+   <script src="javascripts/jquery-1.11.1.min.js"></script>
   <link rel="stylesheet" href="/stylesheets/normalize.css" />
   <link rel="stylesheet" href="/stylesheets/app.css" />
    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    
    
 </head>
 <body>
+
     <script type="text/javascript">
       var comments_array = <%= @all_user_moods.inspect %>
+      var colors_array = <%= @arr.inspect %>
     </script>
-      <div class="title">
-        <h1>
-          <a href="#">
-            mOOdY 1.0
-          </a>
-       </h1>
-      </div>
-
      
-      <div class = "pic_container">
-        <div class="pic">
-          <a href='/'><img src="/images/happy.png"/></a>
-        
-        </div>
+
+
+<div class="header">
+<div class="inline_block">
+ <% if signed_in? %>
+        <li style="color:#088DA5">Signed in as <%= current_user.username %></a></li>
+        <li ><a href="/sign_out" style="color:#ED197D">Sign out</a></li>
+      <% else %>
+        <li style="color:#088DA5"><a href="/auth/github">Sign in</a></li>
+      <% end %>
+</div>      
+<div class ="title">mOOdY 1.0</div>
+</div>
+
+  <div id="main">`
+     <div id="1"><img src="images/happy.png"/></div>
+     
+     <div id="2"><img src="images/sad.png"/></div>
+    
+     <div id="3"><img src="images/meh.png"/></div>
+     <div id="4"><img src="images/sad.png"/></div>
+     <div id="5"><img src="images/meh.png"/></div>
+     <div id="6"><img src="images/happy.png"/></div>
+
+ </div>
+ <form method='POST' action='/moods'> 
+ <div id="radio_main">
+  <label for="happy" id="form_label" style="font-size:2em">PICK YOUR MOOD</label>
+  <div>&nbsp</div>
+
+  <input  class ="radio" type="checkbox" name="happy" value="happy" checked> HAPPY
+  <input class ="radio" type="checkbox" name="sad" value="sad" > SAD
+  <input class ="radio" type="checkbox" name="meh" value="meh"> MEH..
+  <input class ="radio" type="checkbox" name="zen" value="zen"> ZEN
+  <input class ="radio" type="checkbox" name="ft" value="Ft"> F**K THIS !!
+  <input class ="radio" type="checkbox" name="crazy" value="crazy"> CRAZY EYES !!
+  
+  </div>
+  <div>&nbsp</div>
+
+ <div id="radio_main">
+  <label for="red" id="form_label" style="font-size:2em">PICK YOUR COLOR </label>
+  <div>&nbsp</div>
+
+  <input  class ="radio" type="checkbox" name="red" value="Red" checked> RED
+  <input class ="radio" type="checkbox" name="blue" value="Blue" > BLUE
+  <input class ="radio" type="checkbox" name="green" value="Green"> GREEN
+  <input class ="radio" type="checkbox" name="purple" value="Purple"> PURPLE
+</div>
+<div>&nbsp</div>
+
+<div class="input_text">
+ <input type="text" class="comment_text" name="comments" placeholder="I feel....">
+</div>
+<div>&nbsp</div>
+
+<div class="input_text">
+<input type="submit" class = "largebutton" value = "MOOD IT !" />
+</div>
+
+<div>&nbsp</div>
+<div>&nbsp</div>
+</form>  
+ <form method='get' action='/moods'> 
+<div class="input_text">
+ <input type="text" class="root_text" name="root" placeholder="Root..">
+</div>
+</form>
+<div>&nbsp</div>
+
+ <script type="text/javascript" src="javascripts/jsapi.js"></script>
+    <script src="javascripts/wordtree.js"></script>
+    <div class ="widget">
+      <div id="wordtree_basic" style="width: 900px; height: 500px;margin-left:auto;margin-right:auto"></div>
+      <div id="piechart" style="width: 900px; height: 500px;margin-left:auto;margin-right:auto"></div>
+    </div>
  
-        <div class="pic" >
-          <a href='/'><img src="/images/meh.png"/></a>
+
+
+    
        
-        </div>
- 
-        <div class="pic" name = "sad">
-          <a href='/'><img src="/images/sad.png"/></a>
-         
-        </div>
-        </div>
- 
-
-        </div>
-      </div>  
-
-      <div class = "info_container">
-        <div class = "header_container" id="big_header">
-          This is a header
-        </div>
-      </div>
-     
-      <div class = "input_form">
-        <form method='post' action="/">
-          <div>        
-           <input type="radio" class = "radio_button" name="happy" value="happy">s
-          <input type="radio" class = "radio_button" name = "meh" value="meh">
-          <input type="radio" class = "radio_button" name = "sad" value="sad">
-          </div>
-          <div>
-          <input type="radio" class = "radio_button" name="red" value="Red">Red
-          <input type="radio"  class = "radio_button" name="green" value="Green">Green                                                              
-          <input type="radio"  class = "radio_button" name="blue" value="Blue">Blue
-          </div>
-          <input type="text" class = "commenttext" name="comments" placeholder="I feel...."><br> 
-
-          <input type="submit" class = "largebutton" value = "MOOD IT !" />
-         
-        </form>
-      </div>
-       <div>&nbsp</div>
-
     
-        <script type="text/javascript" src="javascripts/jsapi.js"></script>
-    
-        <script src="javascripts/wordtree.js"></script>
-
-       <div id="wordtree_basic" style="width: 900px; height: 500px;margin-left:auto;margin-right:auto"></div>
-
-
 </body>
 </html>
 
