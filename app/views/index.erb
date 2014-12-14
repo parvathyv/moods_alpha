@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/stylesheets/app.css" />
    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    
+  
    
 </head>
 <body>
@@ -26,34 +26,38 @@
 
 
 <div class="header">
+<div class ="title">mOOdY 1.0</div>
 <div class="inline_block">
  <% if signed_in? %>
-        <li style="color:#088DA5">Signed in as <%= current_user.username %></a></li>
+        <li style="color:#088DA5">Signed in as <%= current_user.name %></a></li>
         <li ><a href="/sign_out" style="color:#ED197D">Sign out</a></li>
       <% else %>
-        <li style="color:#088DA5"><a href="/auth/github">Sign in</a></li>
+        <li style="color:#088DA5"><a href="/auth/github">Sign in Github</a></li>
+         <li style="color:#088DA5"><a href="/auth/google_oauth2">Sign in Google</a></li>
       <% end %>
 </div>      
-<div class ="title">mOOdY 1.0</div>
 </div>
 
   <div id="main">`
-     <div id="1"><img src="images/happy.png"/></div>
+     <div id="1"><img src="images/orange.png"/></div>
      
-     <div id="2"><img src="images/sad.png"/></div>
+     <div id="2"><img src="images/blue.png"/></div>
     
-     <div id="3"><img src="images/meh.png"/></div>
-     <div id="4"><img src="images/sad.png"/></div>
-     <div id="5"><img src="images/meh.png"/></div>
-     <div id="6"><img src="images/happy.png"/></div>
+     <div id="3"><img src="images/gray.png"/></div>
+
+     <div id="4"><img src="images/olive.png"/></div>
+     <div id="5"><img src="images/red.png"/></div>
+     <div id="6"><img src="images/purple.png"/></div>
 
  </div>
- <form method='POST' action='/moods'> 
+ <form>
+ <!--method='POST' action='/moods'--> 
  <div id="radio_main">
-  <label for="happy" id="form_label" style="font-size:2em">PICK YOUR MOOD</label>
+  <!--<label for="happy" id="form_label" style="font-size:2em">PICK YOUR MOOD</label>-->
+  <label for="happy" id="form_label"></label>
   <div>&nbsp</div>
 
-  <input  class ="radio" type="checkbox" name="happy" value="happy" checked> HAPPY
+  <input  class ="radio" type="checkbox" name="happy" id="happy" value="happy" checked> HAPPY
   <input class ="radio" type="checkbox" name="sad" value="sad" > SAD
   <input class ="radio" type="checkbox" name="meh" value="meh"> MEH..
   <input class ="radio" type="checkbox" name="zen" value="zen"> ZEN
@@ -92,16 +96,16 @@
 </div>
 </form>
 <div>&nbsp</div>
-
- <script type="text/javascript" src="javascripts/jsapi.js"></script>
+<script type="text/javascript" src="javascripts/jsapi.js"></script>
     <script src="javascripts/wordtree.js"></script>
+   <script src="javascripts/moo.js"></script>
+
     <div class ="widget">
       <div id="wordtree_basic" style="width: 900px; height: 500px;margin-left:auto;margin-right:auto"></div>
       <div id="piechart" style="width: 900px; height: 500px;margin-left:auto;margin-right:auto"></div>
     </div>
  
-
-
+ 
     
        
     

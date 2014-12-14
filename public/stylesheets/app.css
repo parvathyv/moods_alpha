@@ -16,10 +16,11 @@ body{
   text-align: center
 }
 
+
 .header .inline_block{
-  margin-left:90%;
- 
-  margin-top:-20px;
+  margin-left:100%;
+  margin-top: -40px;
+
 }
 
 .header .inline_block li{
@@ -28,6 +29,7 @@ body{
   margin-left:-350px;
   color:black;
   list-style-type: none;
+  font-size:0.8em;
 
 }
 
@@ -38,11 +40,13 @@ body{
   background-color:black; 
   color:white;
   width:100%;
+  margin-top: -20px;
   margin-left:auto;
   margin-right:auto;
   line-height:55px;
   height:50px;
   font-size:2.75em;
+
 }
 
 #main {
@@ -55,8 +59,9 @@ body{
 
 #main div {
     width: 250px;
-    height: 250;
-    border: 1px solid #ccc;
+    height: 250px;
+    margin-left:15px;
+    margin-top:20px;
     float: left;
 }
 
@@ -70,8 +75,21 @@ body{
     font-family:Oswald;
 }
 
+#radio_main label{
+  cursor: pointer;
+  background-image: url('/images/orange.png');
+  width: 250px;
+    height: 250px;
 
-#radio_main .radio .form_label{
+}
+
+input[type=checkbox]:checked ~ #happy {
+   background: red;
+}
+
+
+#radio_main .radio #form_label{
+  
    margin-left:-50px;
 }
 
@@ -80,6 +98,7 @@ body{
   margin-left:30px;
 
 }
+
 
 
 .input_text{
@@ -94,12 +113,12 @@ body{
 
 .input_text >.comment_text{
     width:600px;
-    height:30px;
+    height:40px;
     font-size:1em;
     font-style:italic;
     margin-left: auto;
     margin-right: auto;
-
+    border-radius:4pt;
     
 }
 
@@ -110,12 +129,13 @@ body{
     font-style:italic;
     margin-left: auto;
     margin-right: auto;
-
+    border-radius:4pt;
     
 }
 
 
 .input_text >.largebutton{
+
     width:300px;
     height:50px;
     margin: 0 auto;
@@ -124,6 +144,8 @@ body{
     font-family:Oswald;
   background-color:#ED197D;
   border:0;
+  text-align: center;
+  border-radius:4pt;
  
 }
 

@@ -1,25 +1,13 @@
-     /*
-        $('.largebutton').click(function(event) {
-       event.preventDefault(); 
-
-        $.ajax({
-        url: '/moods',
-        method: 'POST',
-        data: $('form').serialize()
-         
-        });
-      });
-*/
-
-    //  $(document).on('ready', function(){
+ 
         google.load('visualization', '1', {'packages':['corechart','wordtree','table']});
-    //  });
+
 
   
   
       google.setOnLoadCallback(drawChart);
+     
+     
       
-    
       function drawChart() {
         var data = google.visualization.arrayToDataTable(
            comments_array

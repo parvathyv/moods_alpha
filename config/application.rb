@@ -17,7 +17,9 @@ configure do
   use OmniAuth::Builder do
     provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'],
       scope: 'user:email'
-   end 
- 
+   
+   provider :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"],
+    scope: 'email' 
+     end
 
 end
