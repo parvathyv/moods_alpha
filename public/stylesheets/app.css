@@ -27,20 +27,23 @@ body{
   display: inline-block;
   width:200px;
   margin-left:-350px;
-  color:black;
-  list-style-type: none;
+  
+  text-decoration: none;
   font-size:0.8em;
 
 }
 
-
+.header .inline_block li a{
+  list-style-type: none;
+    
+}
 
 .header .title{
   font-family:Oswald;
   background-color:black; 
   color:white;
   width:100%;
-  margin-top: -20px;
+  margin-top:-5px;
   margin-left:auto;
   margin-right:auto;
   line-height:55px;
@@ -52,7 +55,7 @@ body{
 #main {
     width: 800px;
     height:600px;
-    margin-top:50px;
+    
     margin-left:auto;
     margin-right: auto;
 }
@@ -65,28 +68,35 @@ body{
     float: left;
 }
 
+
 #radio_main {
     width: 800px;
     height:100px;
     margin-left:auto;
     margin-right: auto;
     text-align:center;
-     font-size:1em;
+    font-size:1em;
     font-family:Oswald;
 }
 
-#radio_main label{
-  cursor: pointer;
+   
+
+#radio_main #orangel{
   background-image: url('/images/orange.png');
-  width: 250px;
-    height: 250px;
+  width:250px;
+  height:250px;
+  cursor: pointer;
+  word-wrap:break-word;
+  
 
 }
 
-input[type=checkbox]:checked ~ #happy {
+
+/*
+input[type=checkbox]:checked ~ #orange {
    background: red;
 }
-
+*/
 
 #radio_main .radio #form_label{
   
@@ -98,7 +108,6 @@ input[type=checkbox]:checked ~ #happy {
   margin-left:30px;
 
 }
-
 
 
 .input_text{
@@ -122,19 +131,9 @@ input[type=checkbox]:checked ~ #happy {
     
 }
 
-.input_text >.root_text{
-    width:200px;
-    height:30px;
-    font-size:1em;
-    font-style:italic;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius:4pt;
-    
-}
 
 
-.input_text >.largebutton{
+.input_text .largebutton{
 
     width:300px;
     height:50px;
@@ -148,6 +147,59 @@ input[type=checkbox]:checked ~ #happy {
   border-radius:4pt;
  
 }
+
+.root_input_text{
+  
+    width: 700px;
+    height:50px;
+    margin-left:auto;
+    margin-right: auto;
+   
+    text-align:center;
+}
+
+.root_input_text .root_text{
+    width:200px;
+    height:30px;
+    font-size:1em;
+    font-style:italic;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:4pt;
+    
+}
+
+.user_input_text{
+  
+    width: 700px;
+    height:50px;
+    margin-left:auto;
+    margin-right: auto;
+    font-family: Oswald;
+    text-align:center;
+
+}
+
+.user_input_text .radio{
+  margin-left:10px;
+}
+
+.user_input_text >.medbutton{
+   
+    width:150px;
+    height:50px;
+    margin: 0 auto;
+    color:white;
+    font-size:2em;
+    font-family:Oswald;
+  background-color:#088DA5;
+  border:0;
+  text-align: center;
+  border-radius:4pt;
+ 
+}
+
+
 
 .widget{
   text-align:center;

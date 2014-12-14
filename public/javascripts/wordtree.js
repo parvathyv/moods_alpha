@@ -23,14 +23,14 @@
         fontName: 'Roberto',
           wordtree: {
             format: 'implicit',
-            
-            word: 'I feel '
+            word: root
           }
         };
 
          var options1 = {
           title: 'Moods',
-          colors: ['#e0440e', '#00FF00', '#0000FF','#551A8B']
+          colors: ['#FFA500', '#0850a1', '#44474b','#789448','#e53a0f','#6f066f'],
+          is3D:true
         };
        
           var chart = new google.visualization.WordTree(document.getElementById('wordtree_basic'));

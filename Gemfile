@@ -8,6 +8,7 @@ gem 'sinatra-activerecord'
 gem 'sinatra-contrib'
 gem 'sinatra-flash'
 gem 'omniauth-google-oauth2'
+gem 'json'
 
 group :test, :development do
   gem 'capybara'

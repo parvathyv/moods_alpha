@@ -116,6 +116,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   dotenv
+  json
   omniauth-github
   omniauth-google-oauth2
   pg

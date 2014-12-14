@@ -21,6 +21,7 @@
     <script type="text/javascript">
       var comments_array = <%= @all_user_moods.inspect %>
       var colors_array = <%= @arr.inspect %>
+      var root = <%= @root.inspect%>
     </script>
      
 
@@ -30,10 +31,10 @@
 <div class="inline_block">
  <% if signed_in? %>
         <li style="color:#088DA5">Signed in as <%= current_user.name %></a></li>
-        <li ><a href="/sign_out" style="color:#ED197D">Sign out</a></li>
+        <li ><a href="/sign_out" style="color:#ED197D;list-style-type:none">Sign out</a></li>
       <% else %>
-        <li style="color:#088DA5"><a href="/auth/github">Sign in Github</a></li>
-         <li style="color:#088DA5"><a href="/auth/google_oauth2">Sign in Google</a></li>
+        <li ><a href="/auth/github" style="color:#088DA5">Sign in Github</a></li>
+         <li><a href="/auth/google_oauth2" style="color:#088DA5">Sign in Google</a></li>
       <% end %>
 </div>      
 </div>
@@ -43,7 +44,7 @@
      
      <div id="2"><img src="images/blue.png"/></div>
     
-     <div id="3"><img src="images/gray.png"/></div>
+     <div id="3"><img src="images/gray.png"></div>
 
      <div id="4"><img src="images/olive.png"/></div>
      <div id="5"><img src="images/red.png"/></div>
@@ -54,29 +55,24 @@
  <!--method='POST' action='/moods'--> 
  <div id="radio_main">
   <!--<label for="happy" id="form_label" style="font-size:2em">PICK YOUR MOOD</label>-->
-  <label for="happy" id="form_label"></label>
+ 
+
+ 
   <div>&nbsp</div>
 
-  <input  class ="radio" type="checkbox" name="happy" id="happy" value="happy" checked> HAPPY
-  <input class ="radio" type="checkbox" name="sad" value="sad" > SAD
-  <input class ="radio" type="checkbox" name="meh" value="meh"> MEH..
-  <input class ="radio" type="checkbox" name="zen" value="zen"> ZEN
-  <input class ="radio" type="checkbox" name="ft" value="Ft"> F**K THIS !!
-  <input class ="radio" type="checkbox" name="crazy" value="crazy"> CRAZY EYES !!
+
+  
+  
+  <input  class ="radio" type="checkbox" name="orange" id="orange" value="happy" checked>HAPPY 
+  <input class ="radio" type="checkbox" name="blue" value="blue" >SAD 
+  <input class ="radio" type="checkbox" name="gray" value="gray">MEH 
+  <input class ="radio" type="checkbox" name="olive" value="olive">ZEN 
+  <input class ="radio" type="checkbox" name="red" value="red">F**K THIS ! 
+  <input class ="radio" type="checkbox" name="purple" value="purple">CRAZY EYES 
   
   </div>
   <div>&nbsp</div>
 
- <div id="radio_main">
-  <label for="red" id="form_label" style="font-size:2em">PICK YOUR COLOR </label>
-  <div>&nbsp</div>
-
-  <input  class ="radio" type="checkbox" name="red" value="Red" checked> RED
-  <input class ="radio" type="checkbox" name="blue" value="Blue" > BLUE
-  <input class ="radio" type="checkbox" name="green" value="Green"> GREEN
-  <input class ="radio" type="checkbox" name="purple" value="Purple"> PURPLE
-</div>
-<div>&nbsp</div>
 
 <div class="input_text">
  <input type="text" class="comment_text" name="comments" placeholder="I feel....">
@@ -90,11 +86,25 @@
 <div>&nbsp</div>
 <div>&nbsp</div>
 </form>  
+
  <form method='get' action='/moods'> 
-<div class="input_text">
+<div class="root_input_text">
  <input type="text" class="root_text" name="root" placeholder="Root..">
+ 
+</div>
+<div class="user_input_text">
+
+ <%@all_users.each do|user|%>
+
+  <input class ="radio" type="checkbox" name="<%=user%>" value="<%=user%>" ><%=user%> 
+ <%end%>
+<div>&nbsp</div>
+<input type="submit" class = "medbutton" value = "TREE IT !" />
 </div>
 </form>
+
+<div>&nbsp</div>
+<div>&nbsp</div>
 <div>&nbsp</div>
 <script type="text/javascript" src="javascripts/jsapi.js"></script>
     <script src="javascripts/wordtree.js"></script>
