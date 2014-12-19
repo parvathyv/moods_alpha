@@ -50,7 +50,7 @@ end
 
 
 get '/' do
-  erb :index
+  redirect '/moods'
 end 
 
 get '/moods' do
@@ -134,8 +134,6 @@ post '/moods' do
           color = 'Gray' 
          end
           
-
-
   comments = 'I feel ' + params[:comments]
   mood_type = get_mood_type(color)
     
