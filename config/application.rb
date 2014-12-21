@@ -4,9 +4,12 @@ configure :development do
 
   require 'sinatra/reloader'
   require 'pry'
+  require 'sprockets/railtie'
 
   also_reload 'app/**/*.rb'
 end
+
+
 
 configure do
   enable :sessions
@@ -20,6 +23,8 @@ configure do
    
    provider :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"],
     scope: 'email' 
-     end
+  end
+  
+
 
 end

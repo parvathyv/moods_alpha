@@ -15,5 +15,7 @@ group :test, :development do
   gem 'dotenv'
   gem 'pry'
   gem 'rspec'
+  gem 'rails_12factor'
+  gem 'sprockets-rails'
   
 end
