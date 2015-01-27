@@ -17,5 +17,5 @@ group :test, :development do
   gem 'rspec'
   gem 'rails_12factor'
   gem 'sprockets-rails'
-  
+
 end
